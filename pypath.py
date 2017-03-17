@@ -45,10 +45,14 @@ class api:
         r=requests.post(self.baseurl+"app/eta/getVehicleETA.json",data=data,headers=headers)
         return json.loads(r.text)
     
-    # Post req . req working n resp failure     
-    def get_veichles_by_rec_boundary(self,rec):
-        data=json.dumps({'pointNW':{'latitude':rec[0],'longitude':rec[1]}},{'pointSE':{'latitude':rec[2],'longitude':rec[3]}})
+    def get_vehicles_by_rec_boundary(self,rec):
+        data=json.dumps({'pointNW':{'latitude':rec[0],'longitude':rec[1]},'pointSE':{'latitude':rec[2],'longitude':rec[3]}})
         r=requests.post(self.baseurl+"app/vehicles/getVehicleList.json",data=data,headers=headers)
+        return json.loads(r.text)
+        
+    def get_stoppages_by_rec_boundary(self,rec):
+        data=json.dumps({'pointNW':{'latitude':rec[0],'longitude':rec[1]},'pointSE':{'latitude':rec[2],'longitude':rec[3]}})
+        r=requests.post(self.baseurl+"app/stops/getStopList.json",data=data,headers=headers)
         return json.loads(r.text)
     
         
