@@ -34,7 +34,7 @@ Commuter can also view all the buses operating on a particular route in real tim
 [:heavy_check_mark:] findNearestStop<br>
 [:heavy_check_mark:] getStoppagesInBoundary<br>
 [:heavy_check_mark:] getVehiclePosition<br>
-[:grey_exclamation:] getRoutePathBetween2Stops<br>
+[:heavy_check_mark:] getRoutePathBetween2Stops<br>
 [:grey_exclamation:] getTokenForRideShare<br>
 [:heavy_check_mark:] getApproachingVehicles<br>
 [:heavy_check_mark:] getLastRoueUpdateTime<br>

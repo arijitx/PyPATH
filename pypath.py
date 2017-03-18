@@ -14,6 +14,14 @@ class api:
         self.baseurl="http://167.114.174.89:8080/"
         self.baseurl_tp="http://167.114.174.89:2080/"
         self.req_id=""
+        self.stops=self.get_all_stoppages()["data"]
+        
+    #utility
+    def get_stop_id_by_name(self,stop_name):
+        for stop in self.stops:
+            if stop["stopName"]==stop_name:
+                return stop["stopId"]
+        return "0"
     
     # Get req working all
     def get_all_routes(self):
@@ -73,6 +81,11 @@ class api:
     def get_trip_plans(self,from_stop,to_stop,hop_count):
         url_params="startStopName=" + from_stop + "&endStopName=" + to_stop + "&hopCount=" + str(hop_count)
         r=requests.get(self.baseurl_tp+"/app/tripplanner/routes?"+url_params)
+        return json.loads(r.text)
+    
+    def get_route_path_bw_2_stops(self,route_code,from_stop_id,to_stop_id):
+        data=json.dumps({"requestId":guid(),"routeCode":route_code,"startStopId":from_stop_id,"endStopId":to_stop_id})
+        r=requests.post(self.baseurl+"app/paths/getPathByRoute.json",data=data,headers=headers)
         return json.loads(r.text)
         
         
