@@ -55,5 +55,9 @@ class api:
         r=requests.post(self.baseurl+"app/stops/getStopList.json",data=data,headers=headers)
         return json.loads(r.text)
     
+    def find_nearest_stop(self,loc,dist):
+        data=json.dumps({"location": {"latitude": loc[0],"longitude": loc[1]},"searchDistance": dist})
+        r=requests.post(self.baseurl+"app/stops/getNearbyStops.json",data=data,headers=headers)
+        return json.loads(r.text)
         
         
