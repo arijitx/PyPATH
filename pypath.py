@@ -70,3 +70,10 @@ class api:
         r=requests.post(self.baseurl+"app/vehicles/getVehicleByRoute.json",data=data,headers=headers)
         return json.loads(r.text)
         
+    def get_trip_plans(self,from_stop,to_stop,hop_count):
+        url_params="startStopName=" + from_stop + "&endStopName=" + to_stop + "&hopCount=" + str(hop_count)
+        r=requests.get(self.baseurl_tp+"/app/tripplanner/routes?"+url_params)
+        return json.loads(r.text)
+        
+        
+        
