@@ -28,7 +28,7 @@ Commuter can also view all the buses operating on a particular route in real tim
 [:heavy_check_mark:] getVehicleListByRecBoundary<br>
 [:grey_exclamation:] getVehicleListByCirBoundary<br>
 [:heavy_check_mark:] getVehicleETA<br>
-[:grey_exclamation:] getVehicleByRoute<br>
+[:heavy_check_mark:] getVehicleByRoute<br>
 [:grey_exclamation:] getPointByRoute<br>
 [:grey_exclamation:] getTripPlans<br>
 [:heavy_check_mark:] findNearestStop<br>

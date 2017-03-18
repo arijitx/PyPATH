@@ -65,8 +65,8 @@ class api:
         r=requests.post(self.baseurl+"app/vehicles/getVehicleByRegNo.json",data=data,headers=headers)
         return json.loads(r.text)
     
-    # post not working
     def get_vehicle_by_route(self,route_code):
         data=json.dumps({ "routeCode": route_code })
         r=requests.post(self.baseurl+"app/vehicles/getVehicleByRoute.json",data=data,headers=headers)
         return json.loads(r.text)
+        
